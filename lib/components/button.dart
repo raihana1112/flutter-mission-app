@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -8,6 +9,7 @@ class CustomButton extends StatelessWidget {
   final Color backgroundColor;
   final Color textColor;
   final bool isBold;
+  final double? fontsize;
 
   const CustomButton({
     super.key,
@@ -18,6 +20,7 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor = Colors.black,
     this.textColor = Colors.white,
     this.isBold = true,
+    this.fontsize
   });
 
   @override
@@ -34,14 +37,20 @@ class CustomButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         child: Center(
-          child: Text(
+          child: AutoSizeText(
             text,
             style: TextStyle(
               color: textColor,
               fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+              fontSize: fontsize??  16,
             ),
+            maxLines: 1,
+            minFontSize: 10,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
           ),
-        ),
+),
+
       ),
     );
   }

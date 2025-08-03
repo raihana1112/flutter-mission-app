@@ -24,28 +24,28 @@ class LoginPage extends StatelessWidget {
                 const AutoSizeText(
                   "MISS",
                   style: TextStyle(
-                    fontSize: 64,
+                    fontSize: 90,
                     fontWeight: FontWeight.bold,
-                    letterSpacing: 2,
+                    letterSpacing: 4,
                   ),
                   maxLines: 1,
                 ),
                 const AutoSizeText(
                   "IONS",
                   style: TextStyle(
-                    fontSize: 64,
+                    fontSize: 90,
                     fontWeight: FontWeight.bold,
-                    letterSpacing: 2,
+                    letterSpacing: 4,
                   ),
                   maxLines: 1,
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   alignment: Alignment.centerRight,
                   child: const Text(
                     "SIGN IN",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -77,21 +77,22 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 /// Register Row
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Don’t have an account? "),
-                    GestureDetector(
-                      onTap: () {
-                        context.go('/sign-up');
-                      },
-                      child: const Text(
-                        "Register here",
-                        style: TextStyle(decoration: TextDecoration.underline),
-                      ),
+                Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  const AutoSizeText("Don’t have an account? "),
+                  GestureDetector(
+                    onTap: () {
+                      context.go('/sign-up');
+                    },
+                    child: const AutoSizeText(
+                      "Register here",
+                      style: TextStyle(decoration: TextDecoration.underline),
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
+
                 const SizedBox(height: 8),
 
                 /// Guest Mode

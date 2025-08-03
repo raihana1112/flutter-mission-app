@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class MissionDropdownCard extends StatelessWidget {
   final String title;
@@ -21,14 +22,15 @@ class MissionDropdownCard extends StatelessWidget {
       child: Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
-          title: Text(
+          title: AutoSizeText(
             title,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
-          childrenPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          childrenPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           tilePadding: const EdgeInsets.symmetric(horizontal: 16),
           iconColor: Colors.black,
           collapsedIconColor: Colors.black,

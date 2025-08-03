@@ -25,29 +25,29 @@ class SignUpPage extends StatelessWidget {
                 const AutoSizeText(
                   "MISS",
                   style: TextStyle(
-                    fontSize: 64,
+                    fontSize: 90,
                     fontWeight: FontWeight.bold,
-                    letterSpacing: 2,
+                    letterSpacing: 4,
                   ),
                   maxLines: 1,
                 ),
                 const AutoSizeText(
                   "IONS",
                   style: TextStyle(
-                    fontSize: 64,
+                    fontSize: 90,
                     fontWeight: FontWeight.bold,
-                    letterSpacing: 2,
+                    letterSpacing: 4,
                   ),
                   maxLines: 1,
                 ),
                 
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   alignment: Alignment.centerRight,
                   child: const Text(
                     "SIGN UP",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -96,21 +96,25 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 /// Register Row
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Already have an account? "),
-                    GestureDetector(
-                      onTap: () {
-                        context.go('/');
-                      },
-                      child: const Text(
-                        "Login here",
-                        style: TextStyle(decoration: TextDecoration.underline),
+                Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  const AutoSizeText("Already have an account? "),
+                  GestureDetector(
+                    onTap: () {
+                      context.go('/');
+                    },
+                    child: const AutoSizeText(
+                      "Login here",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Colors.black, // opsional untuk penekanan
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
+
                 const SizedBox(height: 8),
 
                 /// Guest Mode
@@ -118,7 +122,7 @@ class SignUpPage extends StatelessWidget {
                   onTap: () {
                     context.go('/home');
                   },
-                  child: const Text(
+                  child: const AutoSizeText(
                     "Guest Mode",
                     style: TextStyle(decoration: TextDecoration.underline),
                   ),
@@ -126,7 +130,7 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(height: 50),
 
                 /// Privacy Note
-                const Text("Your Privacy, Our Priority"),
+                const AutoSizeText("Your Privacy, Our Priority"),
               ],
             ),
           ),

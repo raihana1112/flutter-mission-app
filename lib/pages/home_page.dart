@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:mission/components/ads_blok.dart';
+import 'package:mission/components/button.dart';
 import '../components/mission_dropdown_cards.dart';
 import '../components/mission_items.dart';
 import '../components/ads_footer.dart';
@@ -49,10 +51,10 @@ class HomePage extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            context.go('/settings');
+                            context.push('/settings');
                           },
                           child: const AutoSizeText(
-                            "Setting",
+                            "Settings",
                             maxLines: 1,
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
@@ -65,29 +67,15 @@ class HomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
 
-                    // Button
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const AutoSizeText(
-                          "Your Missions",
-                          maxLines: 1,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
+                    CustomButton(
+                      text: "Your Mission",
+                      onPressed: () {
+                        
+                      },
+                      width: 430,
+                      isBold: true,
                     ),
+
                     const SizedBox(height: 24),
 
                     // Points
@@ -112,10 +100,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const AutoSizeText(
-                      "~ Rp. 120.000",
-                      maxLines: 1,
-                    ),
+                    const AutoSizeText("~ Rp. 120.000", maxLines: 1),
                     const SizedBox(height: 16),
                     const Divider(),
                     const SizedBox(height: 16),
@@ -134,6 +119,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
+
                     MissionDropdownCard(
                       title: "Progress",
                       children: const [
@@ -141,7 +127,9 @@ class HomePage extends StatelessWidget {
                           task: "Login 3 Hari - 300c",
                           action: "more",
                         ),
-                        MissionItem(task: "Level 5 - 500c", action: "more"),
+                        MissionItem(
+                          task: "Level 5 - 500c", 
+                          action: "more"),
                         MissionItem(
                           task: "Watch Video - 1250c",
                           action: "more",
@@ -154,17 +142,19 @@ class HomePage extends StatelessWidget {
                         MissionItem(task: "Login 3 Hari - 300c", action: ""),
                       ],
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),
 
-              // Footer tanpa padding, full-width
-              const AdsFooter(),
+              //ads blok
+              const AdsBlok(),
             ],
           ),
         ),
       ),
+      // Footer tanpa padding, full-width
+      bottomNavigationBar: const AdsFooter(),
     );
   }
 }
